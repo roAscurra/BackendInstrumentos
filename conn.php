@@ -18,7 +18,7 @@ $database = "InstrumentosDB";
 // Crear la base de datos si no existe
 $sql_create_db = "CREATE DATABASE IF NOT EXISTS $database";
 if ($conn->query($sql_create_db) === TRUE) {
-    echo "Base de datos '$database' creada correctamente.<br>";
+    // echo "Base de datos '$database' creada correctamente.<br>";
 } else {
     echo "Error al crear la base de datos '$database': " . $conn->error . "<br>";
 }
@@ -49,7 +49,7 @@ function crearTabla($conn) {
     )";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Tabla creada correctamente.<br>";
+        // echo "Tabla creada correctamente.<br>";
     } else {
         echo "Error al crear la tabla: " . $conn->error . "<br>";
     }
