@@ -1,7 +1,7 @@
 <?php
 include_once("conn.php");
 
-$sql = "SELECT * FROM `Instrumento`"; // Usar comillas invertidas (`) en lugar de comillas simples (')
+$sql = "SELECT * FROM `Instrumento`"; 
 
 $result = $conn->query($sql);
 
