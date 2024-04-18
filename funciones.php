@@ -1,6 +1,6 @@
 <?php
 include_once("conn.php");
-
+include_once("insertarDatos.php");
 ini_set('display_errors','Off');
 
 if (isset($_SERVER['HTTP_ORIGIN'])) {

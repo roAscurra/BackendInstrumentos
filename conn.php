@@ -4,10 +4,10 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 
-// Create connection
+// Crear conexión
 $conn = new mysqli($servername, $username, $password);
 
-// Check connection
+// Verificar conexión
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -29,7 +29,7 @@ $conn->close();
 // Establecer conexión a la base de datos creada
 $conn = new mysqli($servername, $username, $password, $database);
 
-// Check connection
+// Verificar conexión
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -37,7 +37,7 @@ if ($conn->connect_error) {
 // Función para crear la tabla si no existe
 function crearTabla($conn) {
     $sql = "CREATE TABLE IF NOT EXISTS Instrumento (
-        `id` int(11) NOT NULL,
+        `id` int(11) NOT NULL AUTO_INCREMENT,
         `instrumento` varchar(250) NOT NULL,
         `marca` varchar(250) NOT NULL,
         `modelo` varchar(250) NOT NULL,
@@ -45,9 +45,10 @@ function crearTabla($conn) {
         `precio` double NOT NULL,
         `costoEnvio` varchar(1) NOT NULL,
         `cantidadVendida` int(11) NOT NULL,
-        `descripcion` varchar(250) NOT NULL
+        `descripcion` varchar(250) NOT NULL,
+        PRIMARY KEY (`id`)
     )";
-
+    
     if ($conn->query($sql) === TRUE) {
         // echo "Tabla creada correctamente.<br>";
     } else {
@@ -55,9 +56,9 @@ function crearTabla($conn) {
     }
 }
 
+
 // Llamar a la función para crear la tabla
 crearTabla($conn);
 
-$conn->set_charset("utf8");
 
 ?>
