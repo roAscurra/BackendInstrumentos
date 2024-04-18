@@ -43,7 +43,7 @@ function crearTabla($conn) {
         `modelo` varchar(250) NOT NULL,
         `imagen` varchar(250) NOT NULL,
         `precio` double NOT NULL,
-        `costoEnvio` varchar(1) NOT NULL,
+        `costoEnvio` varchar(50) NOT NULL,
         `cantidadVendida` int(11) NOT NULL,
         `descripcion` varchar(250) NOT NULL,
         PRIMARY KEY (`id`)

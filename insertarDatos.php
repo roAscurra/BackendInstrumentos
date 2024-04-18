@@ -13,16 +13,12 @@ if ($result && mysqli_num_rows($result) === 0) {
     // Decodificar el contenido JSON a un array PHP
     $data = json_decode($json_data, true);
 
-    // Preparar la consulta SQL para insertar los datos
-    $sql_insert = "INSERT INTO Instrumento (id, instrumento, marca, modelo, imagen, precio, costoEnvio, cantidadVendida, descripcion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-    // Preparar la sentencia
-    $stmt = $conn->prepare($sql_insert);
-
     // Recorrer los datos y ejecutar la consulta para cada registro
     foreach ($data['instrumentos'] as $item) {
-        $stmt->bind_param("isssssdis", $item['id'], $item['instrumento'], $item['marca'], $item['modelo'], $item['imagen'], $item['precio'], $item['costoEnvio'], $item['cantidadVendida'], $item['descripcion']);
-        $stmt->execute();
+        $sql_insert = "INSERT INTO Instrumento (id, instrumento, marca, modelo, imagen, precio, costoEnvio, cantidadVendida, descripcion) VALUES ('" . $item['id'] . "', '" . $item['instrumento'] . "', '" . $item['marca'] . "', '" . $item['modelo'] . "', '" . $item['imagen'] . "', " . $item['precio'] . ", '" . $item['costoEnvio'] . "', " . $item['cantidadVendida'] . ", '" . $item['descripcion'] . "')";
+
+        // Ejecutar la consulta
+        $conn->query($sql_insert);
     }
 }
 
